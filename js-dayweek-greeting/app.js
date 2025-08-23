@@ -5,21 +5,25 @@ let dayOfTheWeek;
 const weekdayGreeting = "Have a great week!"
 const weekendGreeting = "Have a great weekend!"
 
-alert("Welcome!")
+document.addEventListener('DOMContentLoaded', () => {
 
-function checkWeekdays(day) {
-    if (weekend.includes(day)) {
-        alert(weekendGreeting);
-    } else if (weekday.includes(day)) {
-        alert(weekdayGreeting)
-    } else {
-        alert("Not a valid day, choose between these dates:\n" + daysOfTheWeek.join(", "))
-    } console.log(day);
+    alert("Welcome!")
+    function checkWeekdays(day) {
+        if (weekend.includes(day)) {
+            alert(weekendGreeting);
+        } else if (weekday.includes(day)) {
+            alert(weekdayGreeting)
+        } else {
+            alert("Not a valid day, choose between these dates:\n" + daysOfTheWeek.join(", "))
+        }
+    }
+    if (!dayOfTheWeek) {
+        let greetings = prompt("What day is it?");
+        dayOfTheWeek = greetings;
+        checkWeekdays(`${dayOfTheWeek}`);
+    }
+});
+
+function refreshPage() {
+    location.reload();
 }
-
-while (!dayOfTheWeek) {
-    let greetings = prompt("What day is it?");
-    dayOfTheWeek = greetings;
-    checkWeekdays(`${dayOfTheWeek}`);
-}
-
