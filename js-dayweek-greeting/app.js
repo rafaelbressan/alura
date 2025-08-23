@@ -3,7 +3,7 @@ const weekend = daysOfTheWeek.slice(-2);
 const weekday = daysOfTheWeek.slice(0, 4);
 let dayOfTheWeek;
 const weekdayGreeting = "Have a great week!"
-const weekendGreeting = "Have a great weekend!"
+const weekendGreeting = `Have a great weekend!`
 
 document.addEventListener('DOMContentLoaded', () => {
 
