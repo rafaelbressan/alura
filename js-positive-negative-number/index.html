@@ -21,11 +21,17 @@
 </head>
 
 <body>
-    <div class="container mx-auto p-6 m-6 bg-slate-100">
-        <h1 class="text-2xl font-bold mb-4">Positive or Negative Number</h1>
-        <input type="number" id="numberInput" class="border p-2 mb-4" placeholder="Enter a number">
-        <button id="checkButton" class="bg-slate-500 hover:bg-slate-600 text-white py-2 px-4 rounded">Check</button>
-        <p id="result" class="mt-4"></p>
+    <!-- Modal Overlay -->
+    <div class="fixed inset-0 bg-slate-300 bg-opacity-40 flex items-center justify-center z-50">
+        <!-- Modal Content -->
+        <div class="bg-slate-100 rounded-lg shadow-lg p-8 w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-4 text-center">Positive or Negative <br> Number Checker</h1>
+            <input type="number" id="numberInput" class="border p-2 mb-4 w-full" placeholder="Enter a number">
+            <button id="checkButton"
+                class="bg-slate-500 hover:bg-slate-600 text-white py-2 px-4 rounded w-full">Check</button>
+            <p id="result" class="mt-4 text-center"></p>
+        </div>
+    </div>
     </div>
     <script src="app.js" defer></script>
 </body>
