@@ -4,12 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Positive Negative Number Checker</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                @apply appearance-none;
+        }
+            input[type="number"] {
+                -moz-appearance: textfield;
+                appearance: textfield; /* Standard property for other browsers */
+            }
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="container mx-auto p-6 m-6 bg-slate-100">
+        <h1 class="text-2xl font-bold mb-4">Positive or Negative Number</h1>
+        <input type="number" id="numberInput" class="border p-2 mb-4" placeholder="Enter a number">
+        <button id="checkButton" class="bg-slate-500 hover:bg-slate-600 text-white py-2 px-4 rounded">Check</button>
+        <p id="result" class="mt-4"></p>
+    </div>
     <script src="app.js" defer></script>
 </body>
 
