@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+body::before {
+    background-image: url("img/code.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.container {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 24px;
+    border: 1px solid #1875E8;
+    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
+    background-image: url("img/Ruido.png");
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.container__conteudo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.container__informacoes {
+    flex: 1;
+    padding: 20px;
+}
+
+.container__botao {
+    border-radius: 16px;
+    background: #1875E8;
+    padding: 16px 24px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    margin-top: 16px;
+}
+
+.container__botao:hover {
+    background: #0F5FBF;
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+}
+
+.container__texto {
+    margin: 16px 0 16px 0;
+}
+
+.container__texto-azul {
+    color: #1875E8;
+}
+
+h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 72px;
+}
+
+h2,
+p,
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Counter specific styles */
+.counter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.counter-display {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(24, 117, 232, 0.1);
+    border-radius: 16px;
+    border: 2px solid #1875E8;
+}
+
+#counterValue {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1875E8;
+    margin: 0;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1354A5 0%, #041832 100%);
+    margin: 15% auto;
+    padding: 0;
+    border: 2px solid #1875E8;
+    border-radius: 16px;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-in;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(24, 117, 232, 0.3);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #1875E8;
+}
+
+.close {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #1875E8;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body p {
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #1875E8;
+    border-radius: 8px;
+    background: rgba(24, 117, 232, 0.1);
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.modal-body input:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+.modal-body input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.start-btn {
+    background: #1875E8;
+    color: white;
+}
+
+.start-btn:hover {
+    background: #0F5FBF;
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}

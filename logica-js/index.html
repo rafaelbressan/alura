@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Progressive Regressive Counters</title>
+    <style>
+        @layer utilities {
+
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                @apply appearance-none;
+            }
+
+            input[type="number"] {
+                -moz-appearance: textfield;
+                appearance: textfield;
+                /* Standard property for other browsers */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__conteudo">
+            <img src="./img/robot.png" alt="robô mergulhador" class="container__imagem-robo" />
+            <div class="container__informacoes">
+                <div class="container__texto">
+                    <h1>Counter <span class="container__texto-azul">Games</span></h1>
+                    <h2>Choose your counting adventure!</h2>
+                </div>
+                <div class="counter-buttons">
+                    <button class="container__botao" id="progressiveBtn">Progressive Counter</button>
+                    <button class="container__botao" id="regressiveBtn">Regressive Counter</button>
+                </div>
+                <div class="counter-display" id="counterDisplay">
+                    <p id="counterValue">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progressive Counter Modal -->
+    <div class="modal" id="progressiveModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Progressive Counter</h2>
+                <span class="close" id="progressiveClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enter the target number to count up to:</p>
+                <input type="number" id="progressiveInput" placeholder="Enter target number" min="1" max="1000">
+                <p id="progressiveMessage"></p>
+                <div class="modal-buttons">
+                    <button class="modal-btn start-btn" id="progressiveStart">Start Counting</button>
+                    <button class="modal-btn cancel-btn" id="progressiveCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regressive Counter Modal -->
+    <div class="modal" id="regressiveModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Regressive Counter</h2>
+                <span class="close" id="regressiveClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enter the starting number to count down from:</p>
+                <input type="number" id="regressiveInput" placeholder="Enter starting number" min="1" max="1000">
+                <p id="regressiveMessage"></p>
+                <div class="modal-buttons">
+                    <button class="modal-btn start-btn" id="regressiveStart">Start Counting</button>
+                    <button class="modal-btn cancel-btn" id="regressiveCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="while.js" defer></script>
+</body>
+
+</html>
