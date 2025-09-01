@@ -74,6 +74,14 @@ function appInitialize() {
         return 'VALID'
     }
 
+    function inputCleaner(input) {
+        input.addEventListener('input', () => {
+            if (input.value.trim() === '') {
+                progressiveMessage.textContent = '';
+            }
+        });
+    }
+
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -99,29 +107,26 @@ function appInitialize() {
 
             }
         }
-
         isCounting = false;
     }
 
-    progressiveStart.addEventListener('click', () => {
-        const result = checkValue('progressiveInput');
-        if (result === 'VALID' && !isCounting) {
-            startCounting('progressive', progressiveInput.value);
-            modalProgressive.classList.remove('show');
-        } else {
-            progressiveMessage.textContent = result;
-        }
-    });
+    function startWhile(start, input, direction, modal, message) {
+        start.addEventListener('click', () => {
+            const result = checkValue(input.id);
+            if (result === 'VALID' && !isCounting) {
+                startCounting(direction, input.value);
+                modal.classList.remove('show');
+            } else {
+                message.textContent = result;
+            }
+            input.value = '';
+        });
+    }
 
-    regressiveStart.addEventListener('click', () => {
-        const result = checkValue('regressiveInput');
-        if (result === 'VALID' && !isCounting) {
-            startCounting('regressive', regressiveInput.value);
-            modalRegressive.classList.remove('show');
-        } else {
-            regressiveMessage.textContent = result;
-        }
-    });
+    startWhile(progressiveStart, progressiveInput, 'progressive', modalProgressive, progressiveMessage);
+    startWhile(regressiveStart, regressiveInput, 'regressive', modalRegressive, regressiveMessage);
+
+
 
     openModal(progressiveBtn, modalProgressive);
     closeModal(progressiveClose, modalProgressive);
@@ -130,6 +135,9 @@ function appInitialize() {
     openModal(regressiveBtn, modalRegressive);
     closeModal(regressiveClose, modalRegressive);
     closeModal(regressiveCancel, modalRegressive);
+
+    inputCleaner(progressiveInput);
+    inputCleaner(regressiveInput);
 
 };
 
